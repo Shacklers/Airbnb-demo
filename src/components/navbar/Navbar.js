@@ -10,7 +10,7 @@ import {
     Box,
     Container,
     TextField,
-    FormControlLabel, Switch
+    FormControlLabel, Switch, CardMedia
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {navbar_style, navbar_sx, optionList_sx} from "../../styles/navbar/navbarStyle";
@@ -22,7 +22,7 @@ import WordList from "./CarouselList";
 import MenuWithScroll from "./CarouselList";
 import FilterIcon from '@mui/icons-material/Filter';
 import LanguageIcon from '@mui/icons-material/Language';
-
+import AirBnbLogo from '../../assets/images/airbnb-seeklogo.com.svg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from 'react-router-dom';
 import OptionsBar from "./CarouselList";
@@ -62,15 +62,25 @@ const Navbar = () => {
     };
     const classes = useStyles();
     return(
-        <AppBar>
-            <Toolbar sx={navbar_sx.toolbarLayout}>
-                <Container sx={navbar_sx.firstContainer}>
-                    <Box >
-                        <Typography variant="h5" color="primary">
-                            Airbnb
-                        </Typography>
-                    </Box>
+        <AppBar >
+            <Toolbar sx={navbar_sx.toolbarLayout}  disableGutters >
+                <Box sx={navbar_sx.firstContainer} disableGutters>
+
+
+
                     <Box sx={navbar_sx.firstBox}>
+                        <Box component = {NavLink} sx={navbar_sx.logoBox}>
+                            <CardMedia
+                                component="img"
+                                sx = {navbar_sx.logo}
+
+                                image={AirBnbLogo}
+                                alt="Descripción de la imagen"
+                            />
+                            <Typography sx={{display:{xs:'none',lg:'flex'},fontFamily:'Circular Bold', color:'#e0565b',fontSize:'22px',}}>
+                                Airbnb
+                            </Typography>
+                        </Box>
                         <Box  sx={navbar_sx.inputSearch} >
                             <IconButton >
                                 <SearchIcon sx={navbar_sx.searchIcon}/>
@@ -104,8 +114,8 @@ const Navbar = () => {
                             </Box>
                         </Box>
                     </Box>
-                </Container>
-                <Container sx={navbar_sx.firstContainer}>
+                </Box>
+                <Box sx={navbar_sx.secondContainer}>
                     <OptionsBar></OptionsBar>
                     <Box sx={navbar_sx.secondContainerBox}>
 
@@ -132,10 +142,8 @@ const Navbar = () => {
                             />
                         </Box>
                     </Box>
-                </Container>
-                <Container sx={navbar_sx.firstContainer}>
-                    hola
-                </Container>
+                </Box>
+
 
             </Toolbar>
         </AppBar>

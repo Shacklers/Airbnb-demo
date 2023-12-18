@@ -1,12 +1,15 @@
 import '../../assets/fonts/Circular/font_circular.css'
+
 import {tabsClasses} from "@mui/material";
 import {TypoboxMobile} from "../../components/navbar/Typobox";
 const navbar_sx  = {
     toolbarLayout : {
         height: 'auto',//{xs:'120px', md:'100px', xl:'100px'}
+        width:'100%',
         backgroundColor:'white',
         padding:'0px',
         flexDirection:{xs:'column', md:'column'},
+
 
 
 
@@ -15,21 +18,46 @@ const navbar_sx  = {
         display:'flex',
         flexDirection: 'row',
         alignItems:"center",
+        width:'100%',
+        padding:'0px',
+        margin:'0px',
+        justifyContent:'center',
 
-        padding:'0',
-        justifyContent:'center'
+    },
 
+    secondContainer:{
+        display:'flex',
+        flexDirection: 'row',
+        alignItems:"center",
+        width:'90%',
+        padding:'0px',
+        margin:'0px',
+        justifyContent:'space-between',
 
 
     },
+    logoBox:{
+        display:{xs:'none',md:'flex'},
+        height:'60px',
+        gap:'5px',
+        alignItems:'center',
+        textDecoration:'none'
+    },
+    logo:{
+        display:{xs:'none', lg:'flex'},
+        height:'30px'
+    },
+
     firstBox: {
         display:'flex',
         width:'90%',
         height:{xs:"70px"},
         alignItems:"center",
-        justifyContent: {xs:'space-between',md:'space-around'},
+        justifyContent: {xs:'space-between'},
         flexDirection:{md:'row'},
         padding:{xs:'10px'},
+
+
 
 
     },
@@ -38,7 +66,7 @@ const navbar_sx  = {
         display:'flex',
         alignItems:"center",
         justifyContent:'center',
-        width:{xs:'80%', md:'50%'},
+        width:{xs:'80%', md:'30%'},
         height:{xs:'60px',md:'45px'},
         gap: {xs:'10px'},
         borderRadius: {xs:'30px'},
@@ -46,14 +74,17 @@ const navbar_sx  = {
         boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.3)',
 
 
+
     },
     leftBox:{
       display:{xs:'none',md:'flex'},
         alignItems:"center",
-        justifyContent:'center',
-        width:'35%',
+        justifyContent:'end',
+        width:'16%',
         height:'100%',
         gap:'10px',
+
+
 
 
 
@@ -127,6 +158,9 @@ const navbar_sx  = {
         display:{xs:'none', md:"flex"},
         gap:'10px',
         height:'10%',
+        width:'30%',
+        justifyContent:'end',
+
 
 
 
@@ -156,7 +190,9 @@ const navbar_sx  = {
         width:'250px',
         gap:'10px',
         borderRadius:'10px',
-        border:'1px solid #dddddd'
+        border:'1px solid #dddddd',
+
+
 
 
     }
@@ -170,6 +206,8 @@ const optionList_sx = {
 
     },
     tabs:{
+        display:"flex",
+        alignItems:'center',
 
 
 

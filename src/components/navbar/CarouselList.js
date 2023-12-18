@@ -22,6 +22,7 @@ const theme = createTheme({
                 scrollbar: {
                     '&::-webkit-scrollbar': {
                         width: '12px',
+                        backgroundColor:'black'
                     },
                     '&::-webkit-scrollbar-thumb': {
                         backgroundColor: 'black', // Cambia el color del scrollbar
