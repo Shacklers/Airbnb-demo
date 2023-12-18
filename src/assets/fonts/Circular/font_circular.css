@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Circular Black'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-Black.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Black Italic'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-BlackItalic.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Bold'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-Bold.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Book'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-Book.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Book Italic'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-BookItalic.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Light'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-Light.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Light Italic'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-Light Italic.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Medium'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-Medium.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
+
+@font-face {
+    font-family: 'Circular Medium Italic'; /* Nombre que le das a tu fuente */
+    src: url('CircularStd-MediumItalic.otf') format('opentype'); /* Ruta a tu fuente OTF */
+    /* Puedes agregar más formatos como woff, woff2, etc., para mejorar la compatibilidad */
+}
