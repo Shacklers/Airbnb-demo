@@ -23,6 +23,7 @@ const navbar_sx  = {
         margin:'0px',
         justifyContent:'center',
 
+
     },
 
     secondContainer:{
@@ -72,10 +73,11 @@ const navbar_sx  = {
         borderRadius: {xs:'30px'},
         flexDirection: {xs:'row',md:'row-reverse'},
         boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.3)',
-
-
+        cursor: 'pointer',
 
     },
+
+
     leftBox:{
       display:{xs:'none',md:'flex'},
         alignItems:"center",
@@ -230,5 +232,39 @@ const navbar_style = {
     }
 }
 
+const collapse_sx = {
+    boxCollapse: {
+        display:'flex',
+        justifyContent:"center",
+        alignItems:"center",
+        height:{xs:'',md:'100px'},
 
-export {navbar_sx, optionList_sx, navbar_style};
+        width:'100%'
+    },
+    buttonBox:{
+        width:'40%',
+        height:'70%',
+
+        display:'flex',
+        justifyContent:"START",
+        alignItems:'center',
+        borderRadius:"200px",
+        border: '1px solid #dddddd'
+    },
+    typographyCollapse:{
+        fontFamily:"Circular Bold",
+        textTransform: 'none',
+    }
+}
+
+const collapse_style = {
+    buttonCollapse:{
+
+        borderRadius:"200px",
+        height:'80%',
+        justifyContent:'center', alignItems:'start',flexDirection:'column',
+        color:'#7b7b7b'
+    }
+}
+
+export {navbar_sx, optionList_sx, collapse_sx,collapse_style,navbar_style};

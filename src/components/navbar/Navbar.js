@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     AppBar,
     Toolbar,
@@ -10,7 +10,7 @@ import {
     Box,
     Container,
     TextField,
-    FormControlLabel, Switch, CardMedia
+    FormControlLabel, Switch, CardMedia, Collapse
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {navbar_style, navbar_sx, optionList_sx} from "../../styles/navbar/navbarStyle";
@@ -27,6 +27,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from 'react-router-dom';
 import OptionsBar from "./CarouselList";
 import {TypoboxMobile, TypoBoxDesktop} from "./Typobox";
+import ExpandingComponent from "./ExpandingComponent";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -38,7 +39,20 @@ const useStyles = makeStyles((theme) => ({
         "& .MuiSwitch-track": {
             backgroundColor: "#000 !important"
         }
-    }
+    },
+    button: {
+        borderBottom: '2px solid transparent',
+        transition: 'border-color 0.3s ease-in-out',
+        '&:hover': {
+            borderBottom: '2px solid #000',
+        },
+        '&:active': {
+            borderBottom: '2px solid #000',
+        },
+        '&:focus': {
+            outline: 'none', // Eliminar el contorno al hacer focus
+        },
+    },
 }));
 
 
@@ -47,6 +61,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
     const [mostrarTodo, setMostrarTodo] = useState(false);
+    const [mostrarComponente, setMostrarComponente] = useState(false);
+
+
+
     const handleClick = () => {
 
         console.log('Haz hecho clic en el filtro');
@@ -61,6 +79,11 @@ const Navbar = () => {
         setMostrarTodo(event.target.checked);
     };
     const classes = useStyles();
+
+    const handleCollapse = () =>{
+        setMostrarComponente(!mostrarComponente);
+    }
+
     return(
         <AppBar >
             <Toolbar sx={navbar_sx.toolbarLayout}  disableGutters >
@@ -81,15 +104,30 @@ const Navbar = () => {
                                 Airbnb
                             </Typography>
                         </Box>
-                        <Box  sx={navbar_sx.inputSearch} >
+                        {!mostrarComponente?
+                        <Box  sx={navbar_sx.inputSearch} onClick = {handleCollapse}  >
                             <IconButton >
                                 <SearchIcon sx={navbar_sx.searchIcon}/>
                             </IconButton>
+
                             <Box sx={navbar_sx.boxTypography}>
-                                <TypoboxMobile  sx={navbar_sx.typoBox}></TypoboxMobile>
+
+                                <TypoboxMobile  sx={navbar_sx.typoBox}  ></TypoboxMobile>
                             </Box>
 
+
                         </Box>
+                            :
+
+                            <Box sx={{display:{xs:'none',md:'flex'}, gap:"20px", marginLeft: {md:'120px'}}}>
+                                <Button style={{...navbar_style.navbar_button,borderRadius:'0px'}} className={classes.button}><Typography sx={{fontFamily:'Circular Light',textTransform: 'none'}}>Alojamientos</Typography></Button>
+                                <Button style={{...navbar_style.navbar_button,borderRadius:'0px'}} className={classes.button}><Typography sx={{fontFamily:'Circular Light',textTransform: 'none'}}>Experiencias</Typography></Button>
+                                <Button style={{...navbar_style.navbar_button,borderRadius:'0px'}} className={classes.button}> <Typography sx={{fontFamily:'Circular Light',textTransform: 'none'}}>Experiencias en linea</Typography></Button>
+                            </Box>
+                        }
+
+
+
                         <Box sx={navbar_sx.filterIcon}>
                             <IconButton>
                                <TuneIcon></TuneIcon>
@@ -115,6 +153,10 @@ const Navbar = () => {
                         </Box>
                     </Box>
                 </Box>
+
+                <ExpandingComponent mostrarComponente={mostrarComponente}></ExpandingComponent>
+
+
                 <Box sx={navbar_sx.secondContainer}>
                     <OptionsBar></OptionsBar>
                     <Box sx={navbar_sx.secondContainerBox}>
