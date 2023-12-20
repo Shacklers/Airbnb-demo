@@ -120,9 +120,9 @@ const navbar_sx  = {
 
     },
     searchIcon:{
-        fontSize:{xs:'30px'},
+        fontSize:{xs:'35px'},
         padding:'5px',
-        backgroundColor:'salmon',
+        backgroundColor:'#ff385c',
         borderRadius:'50%',
         color:'white',
 
@@ -238,11 +238,11 @@ const collapse_sx = {
         justifyContent:"center",
         alignItems:"center",
         height:{xs:'',md:'100px'},
-
+        flexWrap:'wrap',
         width:'100%'
     },
     buttonBox:{
-        width:'40%',
+        width:'50%',
         height:'70%',
 
         display:'flex',
@@ -254,6 +254,19 @@ const collapse_sx = {
     typographyCollapse:{
         fontFamily:"Circular Bold",
         textTransform: 'none',
+    },
+
+    busquedaPorRegionBox:{
+        width:'auto',
+        height:'auto',
+
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+
+
+
     }
 }
 

@@ -50,7 +50,7 @@ const OptionsBar = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    console.log(options)
+
 
     return (
         <Box sx={optionList_sx.box}>
