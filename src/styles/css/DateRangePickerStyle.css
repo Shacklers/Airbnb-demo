@@ -1,0 +1,46 @@
+@import url('../../assets/fonts/Circular/font_circular.css');
+
+
+.DayPicker__withBorder .CalendarDay__selected_span {
+    background-color: rgb(225, 225, 227);
+    border: 1px solid rgb(225, 225, 227);
+    color:black;
+
+  }
+
+body, input, button, .CalendarDay, .DateInput {
+    font-family: 'Circular Light'; /* Cambia 'Roboto' por la fuente que desees utilizar */
+}
+
+  .CalendarDay {
+    margin: 2px; /* Ajusta el valor según la cantidad de espacio deseada */
+    border: 1px solid transparent;
+     ;
+  }
+  
+  .CalendarDay:hover {
+     border: 1px solid transparent;
+     border-radius: 30px;
+  }
+
+  .CalendarDay__hovered_span {
+    background-color: transparent !important; /* Cambia "tu_color" por el color deseado */
+  }
+
+  .CalendarDay__selected_span{
+    background-color: white;
+  }
+
+  .CalendarDay__selected_start,.CalendarDay__selected_end  {
+    background-color: black; 
+    border-radius: 9999px; /* Borde superior izquierdo redondeado */
+    color:white;
+
+  }
+  
+  .CalendarDay__selected_start:hover,.CalendarDay__selected_end:hover{
+    background-color: black;
+  }
+
+ 
+
