@@ -1,7 +1,7 @@
 import '../../assets/fonts/Circular/font_circular.css'
 
 import {tabsClasses} from "@mui/material";
-import {TypoboxMobile} from "../../components/navbar/Typobox";
+import {TypoboxMobile} from "../../components/navbar/navbar-components/Typobox";
 const navbar_sx  = {
     toolbarLayout : {
         height: 'auto',//{xs:'120px', md:'100px', xl:'100px'}
@@ -120,7 +120,7 @@ const navbar_sx  = {
 
     },
     searchIcon:{
-        fontSize:{xs:'35px'},
+        fontSize:{xs:'25px'},
         padding:'5px',
         backgroundColor:'#ff385c',
         borderRadius:'50%',
@@ -155,6 +155,7 @@ const navbar_sx  = {
         justifyContent:'center',
         border: '1px solid #7b7b7b',
         borderRadius:{xs:'50%',},
+        cursor:'pointer'
     },
     secondContainerBox:{
         display:{xs:'none', md:"flex"},
@@ -259,7 +260,6 @@ const collapse_sx = {
     busquedaPorRegionBox:{
         width:'auto',
         height:'auto',
-
         display:'flex',
         flexDirection:'column',
         justifyContent:'center',

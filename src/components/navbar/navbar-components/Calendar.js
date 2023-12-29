@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
-import '../../styles/css/DateRangePickerStyle.css';
+import '../../../styles/css/DateRangePickerStyle.css';
 import {Box} from "@mui/material";
 export default function DateCalendarValue() {
 

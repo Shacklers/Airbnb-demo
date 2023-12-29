@@ -10,24 +10,29 @@ import {
     Box,
     Container,
     TextField,
-    FormControlLabel, Switch, CardMedia, Collapse
+    FormControlLabel, Switch, CardMedia, Collapse, Popover, MenuItem, Menu, Divider, Dialog,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {navbar_style, navbar_sx, optionList_sx} from "../../styles/navbar/navbarStyle";
 import { makeStyles } from '@mui/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
-import CarouselMenu from "./CarouselList";
-import WordList from "./CarouselList";
-import MenuWithScroll from "./CarouselList";
+import CarouselMenu from "./navbar-components/CarouselList";
+import WordList from "./navbar-components/CarouselList";
+import MenuWithScroll from "./navbar-components/CarouselList";
 import FilterIcon from '@mui/icons-material/Filter';
 import LanguageIcon from '@mui/icons-material/Language';
 import AirBnbLogo from '../../assets/images/airbnb-seeklogo.com.svg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from 'react-router-dom';
-import OptionsBar from "./CarouselList";
-import {TypoboxMobile, TypoBoxDesktop} from "./Typobox";
-import ExpandingComponent from "./ExpandingComponent";
+import OptionsBar from "./navbar-components/CarouselList";
+import {TypoboxMobile, TypoBoxDesktop} from "./navbar-components/Typobox";
+import ExpandingComponent from "./navbar-components/ExpandingComponent";
+import '../../assets/fonts/Brown/font_brown.css';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import DiscreteSliderMarks from "./dialog-component/SliderDialog";
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -62,6 +67,19 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
     const [mostrarTodo, setMostrarTodo] = useState(false);
     const [mostrarComponente, setMostrarComponente] = useState(false);
+    const [showDialog, setShowDialog] = useState(false);
+
+    const handleClickDialog = () => {
+
+        setShowDialog(true);
+    };
+
+    const handleCloseDialog = () => {
+
+        setShowDialog(false);
+        alert(showDialog);
+
+    };
 
 
 
@@ -84,6 +102,24 @@ const Navbar = () => {
         setMostrarComponente(!mostrarComponente);
     }
 
+
+
+        const [anchorEl, setAnchorEl] = useState(null);
+
+        const handleClickThree = (event) => {
+            setAnchorEl(event.currentTarget);
+        };
+
+        const handleCloseThree = () => {
+            setAnchorEl(null);
+        };
+
+
+
+
+
+
+
     return(
         <AppBar >
             <Toolbar sx={navbar_sx.toolbarLayout}  disableGutters >
@@ -100,8 +136,8 @@ const Navbar = () => {
                                 image={AirBnbLogo}
                                 alt="Descripción de la imagen"
                             />
-                            <Typography sx={{display:{xs:'none',lg:'flex'},fontFamily:'Circular Bold', color:'#e0565b',fontSize:'22px',}}>
-                                Airbnb
+                            <Typography sx={{display:{xs:'none',lg:'flex'},fontFamily:'LL brown', color:'#ff385c',fontSize:'25px',}}>
+                                airbnb
                             </Typography>
                         </Box>
                         {!mostrarComponente?
@@ -128,10 +164,11 @@ const Navbar = () => {
 
 
 
-                        <Box sx={navbar_sx.filterIcon}>
+                        <Box sx={navbar_sx.filterIcon} >
                             <IconButton>
                                <TuneIcon></TuneIcon>
                             </IconButton>
+
                         </Box>
                         <Box sx={navbar_sx.leftBox}>
                             <Box sx={navbar_sx.leftBoxFirstSon}>
@@ -145,10 +182,31 @@ const Navbar = () => {
                                 </Button>
                             </Box>
                             <Box sx={navbar_sx.leftBoxFirstSon}>
-                                <Button style={{...navbar_style.navbar_button, padding: '10px'}} sx={{...navbar_sx.button, gap:'10px',  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)' }} onClick={() => handleClickTwo('Iconos de hamburguesa y usuario')}>
+                                <Button onClick={handleClickThree} style={{...navbar_style.navbar_button, padding: '10px'}} sx={{...navbar_sx.button, gap:'10px',  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)' }}>
                                     <MenuIcon />
                                     <AccountCircleIcon />
                                 </Button>
+                                    <Menu
+                                        anchorEl={anchorEl}
+                                        open={Boolean(anchorEl)}
+                                        onClose={handleCloseThree}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right', // Ajusta la posición horizontal de la transformación
+                                        }}
+
+
+                                    >
+                                        <MenuItem onClick={handleCloseThree}><Typography sx={{width:'200px',fontFamily:'Circular Bold',color:'#2d2d2d'}}>Registrate</Typography></MenuItem>
+                                        <MenuItem onClick={handleCloseThree}><Typography sx={{width:'200px',fontFamily:'Circular Light'}}>Inicia sesion</Typography></MenuItem>
+                                        <Divider></Divider>
+                                        <MenuItem onClick={handleCloseThree}><Typography sx={{width:'200px',fontFamily:'Circular Light'}}>Pone tu Airbnb</Typography></MenuItem>
+                                        <MenuItem onClick={handleCloseThree}><Typography sx={{width:'200px',fontFamily:'Circular Light'}}>Centro de ayuda</Typography></MenuItem>
+                                    </Menu>
                             </Box>
                         </Box>
                     </Box>
@@ -162,12 +220,13 @@ const Navbar = () => {
                     <Box sx={navbar_sx.secondContainerBox}>
 
 
-                        <Box onClick={handleClick} sx={navbar_sx.boxSecondContainerOne}>
+                        <Box onClick={handleClickDialog} sx={navbar_sx.boxSecondContainerOne}>
                             <TuneIcon></TuneIcon>
                             <Typography sx={{ fontFamily: 'Circular Light',fontSize:'12px'}}>Filtrar</Typography>
-
+                            <FilterDialog open={showDialog} ></FilterDialog>
 
                         </Box>
+
                         <Box sx={navbar_sx.boxSecondContainerTwo}>
                             <Typography sx={{fontFamily: 'Circular Light',fontSize:'12px'}}>Mostrar todo (sin impuestos)</Typography>
                             <FormControlLabel
@@ -185,12 +244,29 @@ const Navbar = () => {
                         </Box>
                     </Box>
                 </Box>
-
-
             </Toolbar>
         </AppBar>
     )
 
 }
+
+
+const FilterDialog = ({open,onClose}) => {
+
+
+
+
+    return(
+        <Dialog open={open} maxWidth={'md'} >
+
+        <Box  sx={{width:'100%',height:'2000px'}} >
+                <DiscreteSliderMarks></DiscreteSliderMarks>
+
+            </Box>
+
+        </Dialog>
+    )
+}
+
 export default Navbar;
 

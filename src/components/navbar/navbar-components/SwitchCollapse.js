@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Switch, FormControlLabel, Typography, Box, Button} from '@mui/material';
-import '../../assets/fonts/Circular/font_circular.css'
+import '../../../assets/fonts/Circular/font_circular.css'
 const SwitchCollapse = () => {
     const [fechasSeleccionado, setFechasSeleccionado] = useState(false);
     const [mesesSeleccionado, setMesesSeleccionado] = useState(false);

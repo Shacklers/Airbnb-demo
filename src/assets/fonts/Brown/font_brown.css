@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'LL Brown';
+    src: local('LL Brown Bold Alt'), local('LL-Brown-Bold-Alt'),
+        url('Brown-BoldAlt.woff2') format('woff2'),
+        url('Brown-BoldAlt.woff') format('woff'),
+        url('Brown-BoldAlt.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }

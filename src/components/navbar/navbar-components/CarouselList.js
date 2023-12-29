@@ -2,9 +2,9 @@ import React from 'react';
 import {Tabs, Tab, Box, IconButton, Paper, Icon} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import {options} from '../../assets/data/data.js';
+import {options} from '../../../assets/data/data.js';
 import * as Icons from '@mui/icons-material';
-import {optionList_sx} from "../../styles/navbar/navbarStyle";
+import {optionList_sx} from "../../../styles/navbar/navbarStyle";
 
 
 

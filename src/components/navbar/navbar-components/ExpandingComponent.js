@@ -14,15 +14,16 @@ import {
     Divider
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import {collapse_style, collapse_sx, navbar_sx} from "../../styles/navbar/navbarStyle";
+import {collapse_style, collapse_sx, navbar_sx} from "../../../styles/navbar/navbarStyle";
 import SearchIcon from "@mui/icons-material/Search";
-import {busquedaPorRegion} from '../../assets/data/data'
-import AirBnbLogo from "../../assets/images/airbnb-seeklogo.com.svg";
+import {busquedaPorRegion} from '../../../assets/data/data'
+import AirBnbLogo from "../../../assets/images/airbnb-seeklogo.com.svg";
 import DateCalendarValue from "./Calendar";
 import SwitchCollapse from "./SwitchCollapse";
 
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import FilterDialog from "../FilterDialog";
 
 const useStyles = makeStyles((theme) => ({
     customButton: {
