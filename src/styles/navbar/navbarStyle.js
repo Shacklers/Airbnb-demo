@@ -67,7 +67,7 @@ const navbar_sx  = {
         display:'flex',
         alignItems:"center",
         justifyContent:'center',
-        width:{xs:'80%', md:'30%'},
+        width:{xs:'80%', md:'40%',xl:'30%'},
         height:{xs:'60px',md:'45px'},
         gap: {xs:'10px'},
         borderRadius: {xs:'30px'},
@@ -108,12 +108,14 @@ const navbar_sx  = {
     },
 
     boxTypography:{
-        width:"100%",
+        width:{md:'80%',xl:'100%'},
         display:'flex',
         alignItems:{xs:"start", md:'start'} ,
         justifyContent:{xs:"start", md:'center'} ,
         flexDirection: {xs:'row', md:'row'},
         flexWrap:'wrap',
+
+
 
         gap: {xs:'5px',md:'10px'},
 

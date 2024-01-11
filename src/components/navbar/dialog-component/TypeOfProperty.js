@@ -1,6 +1,7 @@
 import HouseIcon from '@mui/icons-material/House';
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 import {useState} from "react";
 import {Box, Typography} from "@mui/material";
 import '../../../assets/fonts/Circular/font_circular.css'
@@ -38,19 +39,25 @@ const sx_style = {
 
 
 const TypeOfProperty = () => {
-    const [selectedRoom, setSelectedRoom] = useState(null);
-    const [selectedBed, setSelectedBed] = useState(null);
-    const [selectedBath, setSelectedBath] = useState(null);
+    const [selectedBoxCasa, setSelectedBoxCasa] = useState(true);
+    const [selectedBoxHospedaje, setSelectedBoxHospedaje] = useState(true);
+    const [selectedBoxApartment, setSelectedBoxApartment] = useState(true);
+    const [selectedBoxHotel, setSelectedBoxHotel] = useState(true);
 
+    const handleBoxClickCasa = () => {
+        setSelectedBoxCasa(!selectedBoxCasa);
+    };
 
-    const cambiarColorRoom = (index) => {
-        setSelectedRoom(index);
+    const handleBoxClickHospedaje = () => {
+        setSelectedBoxHospedaje(!selectedBoxHospedaje);
     };
-    const cambiarColorBed = (index) => {
-        setSelectedBed(index);
+
+    const handleBoxClickDepto = () => {
+        setSelectedBoxApartment(!selectedBoxApartment);
     };
-    const cambiarColorBath = (index) => {
-        setSelectedBath(index);
+
+    const handleBoxClickHotel = () => {
+        setSelectedBoxHotel(!selectedBoxHotel);
     };
 
     return(
@@ -59,16 +66,57 @@ const TypeOfProperty = () => {
             <Box sx={{display:'flex', width:'100%',gap:'20px',height:'50%' }}>
 
 
-                {properties.map((propiety)=>(
-                    <Box sx={{display:'flex',width:'18%',height:'120px', flexDirection:'column',boxSizing:'contentBox',paddingLeft:'15px',border:'1px solid black',borderRadius:'20px', cursor:'pointer'}}>
-                        <Box sx={{height:'50%',display:'flex', justifyContent:'start', alignItems:'center'}}>
-                            {propiety.icon}
-                        </Box>
+
+
+                <Box onClick={handleBoxClickCasa} sx={{display:'flex',width:'18%',height:'120px', flexDirection:'column',boxSizing:'contentBox',paddingLeft:'15px',border:'1px solid black',borderRadius:'20px', cursor:'pointer', backgroundColor: selectedBoxCasa? 'white':'black'}}>
+                    <Box sx={{height:'50%',display:'flex', justifyContent:'start', alignItems:'center'}}>
+                        <HouseIcon sx={{width:'30px',height:'100px'}}></HouseIcon>
+                    </Box>
+                    <Box sx={{display:'flex', alignItems:'center', height:'50%'}}>
                         <Typography sx={{fontFamily:'Circular Bold', display:'flex',justifyContent:'start',width:'50%'}}>
-                            {propiety.name}
+                            Casa
                         </Typography>
                     </Box>
-                ))}
+                </Box>
+
+                <Box onClick={handleBoxClickHospedaje} sx={{display:'flex',width:'18%',height:'120px', flexDirection:'column',boxSizing:'contentBox',paddingLeft:'15px',border:'1px solid black',borderRadius:'20px', cursor:'pointer', backgroundColor: selectedBoxHospedaje? 'white':'black'}}>
+                    <Box sx={{height:'50%',display:'flex', justifyContent:'start', alignItems:'center'}}>
+                        <OtherHousesIcon  sx={{width:'30px',height:'100px'}}></OtherHousesIcon>
+                    </Box>
+                    <Box sx={{display:'flex', alignItems:'center', height:'50%'}}>
+                        <Typography sx={{fontFamily:'Circular Bold', display:'flex',justifyContent:'start',width:'50%'}}>
+                            Casa de huespedes
+                        </Typography>
+                    </Box>
+                </Box>
+
+                <Box onClick={handleBoxClickDepto} sx={{display:'flex',width:'18%',height:'120px', flexDirection:'column',boxSizing:'contentBox',paddingLeft:'15px',border:'1px solid black',borderRadius:'20px', cursor:'pointer', backgroundColor: selectedBoxApartment? 'white':'black'}}>
+                    <Box sx={{height:'50%',display:'flex', justifyContent:'start', alignItems:'center'}}>
+                        <ApartmentIcon sx={{width:'30px',height:'100px'}}></ApartmentIcon>
+                    </Box>
+                    <Box sx={{display:'flex', alignItems:'center', height:'50%'}}>
+                        <Typography sx={{fontFamily:'Circular Bold', display:'flex',justifyContent:'start',width:'50%'}}>
+                            Departamento
+                        </Typography>
+                    </Box>
+
+                </Box>
+
+                <Box onClick={handleBoxClickHotel} sx={{display:'flex',width:'18%',height:'120px', flexDirection:'column',boxSizing:'contentBox',paddingLeft:'15px',border:'1px solid black',borderRadius:'20px', cursor:'pointer', backgroundColor: selectedBoxHotel? 'white':'black'}}>
+                    <Box sx={{height:'50%',display:'flex', justifyContent:'start', alignItems:'center'}}>
+                        <LocationCityIcon  sx={{width:'30px',height:'100px'}}></LocationCityIcon>
+                    </Box>
+                    <Box sx={{display:'flex', alignItems:'center', height:'50%'}}>
+                        <Typography sx={{fontFamily:'Circular Bold', display:'flex',justifyContent:'start',width:'50%'}}>
+                            Hotel
+                        </Typography>
+                    </Box>
+                </Box>
+
+
+
+
+
             </Box>
         </Box>
     )

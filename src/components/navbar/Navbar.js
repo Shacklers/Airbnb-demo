@@ -219,7 +219,7 @@ const Navbar = () => {
                     </Box>
                 </Box>
 
-                <ExpandingComponent mostrarComponente={mostrarComponente}></ExpandingComponent>
+                <ExpandingComponent mostrarComponente={mostrarComponente} handleClickDialog ={handleClickDialog}></ExpandingComponent>
 
 
                 <Box sx={navbar_sx.secondContainer}>
@@ -258,7 +258,7 @@ const Navbar = () => {
 }
 
 
-const FilterDialog = ({open,onClose}) => {
+const FilterDialog = ({open,handleClickDialog}) => {
 
 
 
@@ -266,13 +266,18 @@ const FilterDialog = ({open,onClose}) => {
     return(
         <Dialog open={open} maxWidth={'md'} >
             <DialogTitle>
-                <Button onClick={onClose}><CloseIcon> </CloseIcon></Button>
+                <Button onClick={handleClickDialog}><CloseIcon> </CloseIcon></Button>
                 Filtros</DialogTitle>
         <Box  sx={{width:'100%',height:'2000px',display:'flex',flexDirection:'column',gap:'20px'}} >
+                <Divider></Divider>
                 <TypeLodgingDialog></TypeLodgingDialog>
+                <Divider></Divider>
                 <PriceRange></PriceRange>
+                <Divider></Divider>
                 <DiscreteSliderMarks></DiscreteSliderMarks>
+                <Divider></Divider>
                 <FirstClassAccommodation></FirstClassAccommodation>
+                <Divider></Divider>
                 <TypeOfProperty></TypeOfProperty>
             </Box>
 
