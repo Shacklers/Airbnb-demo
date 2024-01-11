@@ -10,7 +10,7 @@ import {
     Box,
     Container,
     TextField,
-    FormControlLabel, Switch, CardMedia, Collapse, Popover, MenuItem, Menu, Divider, Dialog,
+    FormControlLabel, Switch, CardMedia, Collapse, Popover, MenuItem, Menu, Divider, Dialog, DialogTitle,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {navbar_style, navbar_sx, optionList_sx} from "../../styles/navbar/navbarStyle";
@@ -32,7 +32,11 @@ import '../../assets/fonts/Brown/font_brown.css';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import DiscreteSliderMarks from "./dialog-component/SliderDialog";
-
+import TypeLodgingDialog from "./dialog-component/TypeLedgingDialog";
+import CloseIcon from '@mui/icons-material/Close';
+import PriceRange from "./dialog-component/PriceRange";
+import FirstClassAccommodation from "./dialog-component/FirstClassAccommodation";
+import TypeOfProperty from "./dialog-component/TypeOfProperty";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -76,8 +80,11 @@ const Navbar = () => {
 
     const handleCloseDialog = () => {
 
-        setShowDialog(false);
-        alert(showDialog);
+            setShowDialog(false);
+
+
+
+
 
     };
 
@@ -223,7 +230,7 @@ const Navbar = () => {
                         <Box onClick={handleClickDialog} sx={navbar_sx.boxSecondContainerOne}>
                             <TuneIcon></TuneIcon>
                             <Typography sx={{ fontFamily: 'Circular Light',fontSize:'12px'}}>Filtrar</Typography>
-                            <FilterDialog open={showDialog} ></FilterDialog>
+                            <FilterDialog open={showDialog}  ></FilterDialog>
 
                         </Box>
 
@@ -258,10 +265,15 @@ const FilterDialog = ({open,onClose}) => {
 
     return(
         <Dialog open={open} maxWidth={'md'} >
-
-        <Box  sx={{width:'100%',height:'2000px'}} >
+            <DialogTitle>
+                <Button onClick={onClose}><CloseIcon> </CloseIcon></Button>
+                Filtros</DialogTitle>
+        <Box  sx={{width:'100%',height:'2000px',display:'flex',flexDirection:'column',gap:'20px'}} >
+                <TypeLodgingDialog></TypeLodgingDialog>
+                <PriceRange></PriceRange>
                 <DiscreteSliderMarks></DiscreteSliderMarks>
-
+                <FirstClassAccommodation></FirstClassAccommodation>
+                <TypeOfProperty></TypeOfProperty>
             </Box>
 
         </Dialog>

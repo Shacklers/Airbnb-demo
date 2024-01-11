@@ -23,7 +23,7 @@ import SwitchCollapse from "./SwitchCollapse";
 
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import FilterDialog from "../FilterDialog";
+
 
 const useStyles = makeStyles((theme) => ({
     customButton: {

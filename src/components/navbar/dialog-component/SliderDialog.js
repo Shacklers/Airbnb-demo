@@ -1,6 +1,6 @@
 import {Box, Slider, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
-
+import '../../../assets/fonts/Circular/font_circular.css'
 
 
 
@@ -60,9 +60,9 @@ function valuetext(value) {
 }
 
 export default function DiscreteSliderMarks() {
-    const [selectedRoom, setSelectedRoom] = useState(null);
-    const [selectedBed, setSelectedBed] = useState(null);
-    const [selectedBath, setSelectedBath] = useState(null);
+    const [selectedRoom, setSelectedRoom] = useState(0);
+    const [selectedBed, setSelectedBed] = useState(0);
+    const [selectedBath, setSelectedBath] = useState(0);
     const [roomNumber,setRoomNumber] = useState(0);
 
     const cambiarColorRoom = (index) => {
@@ -87,9 +87,9 @@ export default function DiscreteSliderMarks() {
 
     return (
         <Box  sx={{width:'auto',display:'flex',gap:'20px',padding:'20px',height:'auto',flexDirection:'column'}}>
-            <Typography>Habitaciones y camas</Typography>
+            <Typography sx={{fontFamily:'Circular Bold',fontSize:'25px'}}>Habitaciones y camas</Typography>
           <Box sx={{display:'flex', alignItems:'center',gap:'20px',flexWrap:'wrap'}}>
-              <Typography style={{width:'100%'}}>{category[0]}</Typography>
+              <Typography style={{width:'100%',fontFamily:'Circular Light'}}>{category[0]}</Typography>
 
             {
 
@@ -101,13 +101,14 @@ export default function DiscreteSliderMarks() {
                                 sx={{cursor:'pointer',width:'auto',paddingLeft:'20px',paddingRight:'20px',height:'30px',border:'1px solid #ebebeb',
                                     borderBottomLeftRadius:'30px', borderBottomRightRadius:'30px',borderTopLeftRadius:'30px',borderTopRightRadius:'30px',display:'flex',justifyContent:'center',alignItems:'center',
                                     backgroundColor:selectedRoom === index ? 'black' : 'white',
+
                                     '&:hover': {
 
                                         borderColor:'black',
                                     },
                                 }} onClick={() => cambiarColorRoom(index)}
 
-                            ><Typography sx={{fontSize:'12px',color:selectedRoom === index ? 'white' : 'black'}}>{rooms.quantity}</Typography></Box>
+                            ><Typography sx={{fontSize:'13px',color:selectedRoom === index ? 'white' : 'black',  fontFamily:'Circular Light',}}>{rooms.quantity}</Typography></Box>
                         )
                 )
 
@@ -116,7 +117,7 @@ export default function DiscreteSliderMarks() {
             }
           </Box>
             <Box sx={{display:'flex', alignItems:'center',gap:'20px',flexWrap:'wrap'}}>
-                <Typography style={{width:'100%'}}>{category[1]}</Typography>
+                <Typography style={{width:'100%',fontFamily:'Circular Light'}}>{category[1]}</Typography>
 
                 {
 
@@ -134,7 +135,7 @@ export default function DiscreteSliderMarks() {
                                     },
                                 }} onClick={() => cambiarColorBed(index)}
 
-                            ><Typography sx={{fontSize:'12px',color:selectedBed === index ? 'white' : 'black'}}>{rooms.quantity}</Typography></Box>
+                            ><Typography sx={{fontSize:'13px',color:selectedBed === index ? 'white' : 'black',fontFamily:'Circular Light'}}>{rooms.quantity}</Typography></Box>
                         )
                     )
 
@@ -143,7 +144,7 @@ export default function DiscreteSliderMarks() {
                 }
             </Box>
             <Box sx={{display:'flex', alignItems:'center',gap:'20px',flexWrap:'wrap'}}>
-                <Typography style={{width:'100%'}}>{category[2]}</Typography>
+                <Typography style={{width:'100%',fontFamily:'Circular Light'}}>{category[2]}</Typography>
 
                 {
 
@@ -161,7 +162,7 @@ export default function DiscreteSliderMarks() {
                                     },
                                 }} onClick={() => cambiarColorBath(index)}
 
-                            ><Typography sx={{fontSize:'12px',color:selectedBath=== index ? 'white' : 'black'}}>{rooms.quantity}</Typography></Box>
+                            ><Typography sx={{fontSize:'13px',color:selectedBath=== index ? 'white' : 'black',fontFamily:'Circular Light'}}>{rooms.quantity}</Typography></Box>
                         )
                     )
 
